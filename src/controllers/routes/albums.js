@@ -1,17 +1,10 @@
 const router = require('express').Router()
-const db = require('../../models/db')
+const Album = require('../../models/albums')
 
 router.get('/:albumID', (req, res) => {
-  const albumID = req.params.albumID
-
-  db.getAlbumsByID(albumID, (error, albums) => {
-    if (error) {
-      res.status(500).render('error', {error})
-    } else {
-      const album = albums[0]
-      res.render('album', {album})
-    }
-  })
+  Album.findById(req.params.albumID)
+    .then(album => res.render('album', {album}))
+    .catch(error => res.status(500).render('error', {error}))
 })
 
 module.exports = router
