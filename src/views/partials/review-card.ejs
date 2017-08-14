@@ -1,9 +1,14 @@
-<article class="media">
-  <div class="media-content">
-    <div class="content">
-      <%= review.content %><br />
-      <%= review.user_id %><br />
-      <%= review.created_on %>
+<div class="box">
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        <a href="/albums/<%= review.album_id %>">
+          <em> <%= review.title %> </em>
+        </a>
+        <%= review.created_on %> <br />
+        <%= review.content %> <br />
+        by <%= review.username %> <br />
+      </div>
     </div>
-  </div>
-</article>
+  </article>
+</div>

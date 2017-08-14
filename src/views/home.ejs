@@ -12,9 +12,9 @@
   <div class="album-list column is-one-third is-offset-1">
     <h2>Records</h2>
     <% albums.forEach(function(album) { %>
-      <div>
+      <div class="box">
         <h5><a href="/albums/<%= album.id %>"><%= album.title %></a></h5>
-        <span><%= album.artist %></span>
+         by <span><%= album.artist %></span>
       </div>
     <% }) %>
   </div>
