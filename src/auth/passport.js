@@ -1,6 +1,6 @@
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
-const User = require('../../models/users')
+const User = require('../models/users')
 
 passport.use('local', new LocalStrategy(
   (username, password, done) => {
@@ -21,3 +21,5 @@ passport.deserializeUser((id, done) => {
     .then(user => done(null, user))
     .catch(error => done(error))
 })
+
+module.exports = passport
