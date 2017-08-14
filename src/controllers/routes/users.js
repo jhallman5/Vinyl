@@ -11,7 +11,7 @@ router.get('/sign-out', (req, res) => {
 
 router.get('/:id', (req, res) => {
   User.findById(req.params.id)
-    .then(user => res.render('profile',{user}))
+    .then(user => res.render('profile',{user, session: req.session.passport}))
     .catch(error => res.status(500).render('error', {error}))
 })
 

@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
   Album.getAll()
     .then(albums =>
       Review.findThreeMostRecent()
-        .then(reviews =>res.render('home', {albums, reviews}))
+        .then(reviews => res.render('home', {albums, reviews, session: req.session.passport}))
         .catch(error => res.status(500).render('error', {error})))
     .catch(error => res.status(500).render('error', {error}))
 })

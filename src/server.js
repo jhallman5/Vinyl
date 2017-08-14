@@ -17,7 +17,10 @@ server.use('/bulma', express.static('node_modules/bulma/css'))
 server.use(express.static(path.join(__dirname, 'public')))
 server.use(bodyParser.urlencoded({extended: false}))
 server.use(session({
-  secret:'PICKLERICK!'
+  secret:'PICKLERICK!',
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24
+  }
 }))
 server.use(passport.initialize())
 server.use(passport.session())
