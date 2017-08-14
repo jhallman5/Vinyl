@@ -11,7 +11,8 @@ require('ejs')
 server.set('view engine', 'ejs')
 server.set('views', path.join(__dirname, 'views'))
 
-server.use(express.static('public'))
+server.use('/bulma', express.static('node_modules/bulma/css'))
+server.use(express.static(path.join(__dirname, 'public')))
 server.use(bodyParser.urlencoded({extended: false}))
 
 server.use(router)
