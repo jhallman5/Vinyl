@@ -1,0 +1,29 @@
+<%- include partials/header %>
+
+  <h1>Vinyl</h1>
+  <section class="hero">
+    <img class=splash src="https://upload.wikimedia.org/wikipedia/commons/4/44/Vinyl_albums.jpg" />
+  </section>
+
+<div class="columns">
+
+
+
+  <div class="album-list column is-one-third is-offset-1">
+    <h2>Records</h2>
+    <% albums.forEach(function(album) { %>
+      <div class="box">
+        <h5><a href="/albums/<%= album.id %>"><%= album.title %></a></h5>
+         by <span><%= album.artist %></span>
+      </div>
+    <% }) %>
+  </div>
+
+  <div class="reviews-list column is-one-third is-offset-1">
+    <h2>Recent Reviews</h2>
+    <% reviews.forEach(function(review) { %>
+      <%- include partials/review-card %>
+    <% }) %>
+  </div>
+</div>
+<%- include partials/footer %>
