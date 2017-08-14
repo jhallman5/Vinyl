@@ -5,9 +5,12 @@
     <img class=splash src="https://upload.wikimedia.org/wikipedia/commons/4/44/Vinyl_albums.jpg" />
   </section>
 
-  <h2>Records</h2>
+<div class="columns">
 
-  <div class="album-list">
+
+
+  <div class="album-list column is-one-third is-offset-1">
+    <h2>Records</h2>
     <% albums.forEach(function(album) { %>
       <div>
         <h5><a href="/albums/<%= album.id %>"><%= album.title %></a></h5>
@@ -16,4 +19,11 @@
     <% }) %>
   </div>
 
+  <div class="reviews-list column is-one-third is-offset-1">
+    <h2>Recent Reviews</h2>
+    <% reviews.forEach(function(review) { %>
+      <%- include partials/review-card %>
+    <% }) %>
+  </div>
+</div>
 <%- include partials/footer %>
