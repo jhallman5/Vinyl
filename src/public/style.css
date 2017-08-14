@@ -3,3 +3,8 @@ html, body {
   padding: 0;
   width: 100vw;
 }
+
+.splash {
+  width: 100vw;
+  height: 40vh;
+}
