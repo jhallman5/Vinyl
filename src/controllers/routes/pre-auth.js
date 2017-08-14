@@ -1,7 +1,8 @@
 const router = require('express').Router()
 const Album = require('../../models/albums')
 const Review = require('../../models/reviews')
-const passport = require('../../auth/passport')
+const User = require('../../models/users')
+const {passport} = require('../../auth/passport')
 
 router.get('/', (req, res) => {
   Album.getAll()
@@ -16,7 +17,7 @@ router.get('/sign-in', (req, res) => {
   res.render('sign-in')
 })
 
-router.post('/sign-in', passport.authenticate('local', { successRedirect: '/',
-                                                         failureRedirect: '/'})
-)
+router.post('/sign-in', (req, res) => {
+  passport.authenticate('local', { successRedirect: '/users/profile', failureRedirect: '/sign-in' })(req, res)
+})
 module.exports = router
