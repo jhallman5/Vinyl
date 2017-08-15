@@ -14,8 +14,9 @@ const findById = (id) =>
         member_since: user[0].member_since,
         reviews: user.map(review => {
           return {
-            id: review.id,
+            id: review.review_id,
             name: review.name,
+            user_id: review.user_id,
             title: review.title,
             album_id: review.album_id,
             content: review.content,
@@ -34,5 +35,5 @@ const create = (name, email, password) =>
 module.exports = {
   findByEmail,
   findById,
-  create,
+  create
 }

@@ -6,7 +6,8 @@ const findByEmail = (email) =>
     .where('email', email)
 
 const findById = (id) =>
-  knex.select('*')
+  knex.select('email', 'name',
+  'user_id', 'member_since', 'reviews.id AS review_id', 'title', 'album_id', 'content', 'created_on')
     .from('users')
     .where('users.id', id)
     .leftOuterJoin('reviews', 'users.id', 'reviews.user_id')

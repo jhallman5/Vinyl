@@ -7,6 +7,7 @@ const albums = require('./albums')
 router.use('/', preAuth)
 router.use('/albums', albums)
 router.use('/users', users)
+router.use('/reviews', reviews)
 
 router.use((req, res) => {
   res.status(404).render('not_found')
