@@ -5,9 +5,12 @@ const getAll = () =>
     .from('albums')
 
 const findById = (id) =>
-  knex.first('*')
+  knex.select('name',
+  'user_id', 'reviews.id AS review_id', 'title', 'album_id', 'content', 'created_on', 'artist')
     .from('albums')
-    .where('id', id)
+    .where('albums.id', id)
+    .leftOuterJoin('reviews', 'albums.id', 'reviews.album_id')
+    .leftOuterJoin('users', 'reviews.user_id', 'users.id')
 
 module.exports = {
   getAll,
