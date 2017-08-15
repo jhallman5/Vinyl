@@ -1,11 +1,27 @@
 <%- include partials/header %>
 <%- include partials/nav %>
 
-  <h1><%= album.title %></h1>
-  <em>by <%= album.artist %></em>
+  <section class="hero is-primary is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          <h1><%= album.title %></h1>
+        </h1>
+        <h2 class="subtitle">
+          <em>by <%= album.artist %></em>
+        </h2>
+      </div>
+    </div>
+  </section>
 
-  <h2>Reviews</h2>
-
-  <!-- TODO: implement album reviews -->
+  <div class="reviews-list column is-one-third is-offset-4">
+    <div class="columns">
+    <div class="column">Reviews</div>
+    <a class="column is-3" href="/reviews/<%= album.id %>/new">Add review</a>
+  </div>
+    <% album.reviews.forEach(function(review) { %>
+      <%- include partials/review-card %>
+    <% }) %>
+  </div>
 
 <%- include partials/footer %>
