@@ -1,0 +1,19 @@
+<%- include partials/header %>
+<%- include partials/nav %>
+
+<div class="card">
+  <div class="card-content">
+    <div class="media">
+      <div class="media-content">
+        <p class="title is-4"><%= user.username %></p>
+      </div>
+    </div>
+
+    <div class="content">
+      email: <%= user.email %><br>
+      Member since: <%= user.member_since %>
+    </div>
+  </div>
+</div>
+
+<%- include partials/footer %>

@@ -5,17 +5,12 @@
     </a>
   </div>
   <div class="navbar-end">
-    <a class="navbar-item" href="/">
-      Sign up
-    </a>
-    <a class="navbar-item" href="/">
-      Sign in
-    </a>
-    <a class="navbar-item" href="/">
-      Profile
-    </a>
-    <a class="navbar-item" href="/">
-      Sign out
-    </a>
+    <% if(locals.session) { %>
+      <a class="navbar-item" href="/">Profile</a>
+      <a class="navbar-item" href="/users/sign-out">Sign out</a>
+    <% } else { %>
+    <a class="navbar-item" href="/">Sign up</a>
+    <a class="navbar-item" href="/sign-in">Sign in</a>
+    <% } %>
   </div>
 </nav>
