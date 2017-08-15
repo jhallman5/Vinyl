@@ -10,7 +10,13 @@ const findById = (id) =>
     .from('users')
     .where('id', id)
 
+const create = (name, email, password) =>
+  knex('users')
+    .insert({email, name, password})
+    .first('id')
+
 module.exports = {
   findByEmail,
-  findById
+  findById,
+  create
 }
