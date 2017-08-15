@@ -19,7 +19,7 @@ const findById = (id) =>
             album_id: review.album_id,
             user_id: review.user_id,
             content: review.content,
-            created_on: moment(review.created_on).format("MMM Do YY")
+            created_on: moment(review.created_on).format("MMM Do YYYY")
           }
         })
       }

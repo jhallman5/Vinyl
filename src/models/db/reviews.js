@@ -13,7 +13,12 @@ const obliterate = (id) =>
     .where('id', id)
     .del()
 
+const create = (userId, albumId, content) =>
+    knex('reviews')
+      .insert({user_id: userId, album_id: albumId, content})
+
 module.exports = {
   getAll,
-  obliterate
+  obliterate,
+  create,
 }

@@ -14,9 +14,9 @@
   </div>
 </section>
 
-<form class="field column is-4 is-offset-4">
+<form class="field column is-4 is-offset-4" method="POST" action="/albums/<%= album.id %>/reviews/new">
   <div class="control">
-    <textarea class="textarea" placeholder="Let us know your thoughts!"></textarea>
+    <textarea class="textarea" placeholder="Let us know your thoughts!" name="content"></textarea>
   </div>
   <div class="control column is-offset-9">
   <button class="button is-primary">Submit</button>
