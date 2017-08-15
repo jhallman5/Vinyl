@@ -1,4 +1,5 @@
 const User = require('./db/users')
+const moment = require('moment')
 
 const findByEmail = (email) =>
   User.findByEmail(email)
@@ -15,9 +16,10 @@ const findById = (id) =>
           return {
             id: review.id,
             name: review.name,
+            title: review.title,
             album_id: review.album_id,
             content: review.content,
-            created_on: review.created_on
+            created_on: moment(review.created_on).format("MMM Do YY")
           }
         })
       }
