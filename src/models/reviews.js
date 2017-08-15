@@ -12,6 +12,10 @@ const findThreeMostRecent = () =>
       throw error
     })
 
+const obliterate = (id) =>
+  Review.obliterate(id)
+
 module.exports = {
   findThreeMostRecent,
+  obliterate,
 }
