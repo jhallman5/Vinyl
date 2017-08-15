@@ -5,6 +5,22 @@ const findByEmail = (email) =>
 
 const findById = (id) =>
   User.findById(id)
+    .then(user => {
+      return {
+        email: user[0].email,
+        name: user[0].name,
+        user_id: user[0].user_id,
+        member_since: user[0].member_since,
+        reviews: user.map(review => {
+          return {
+            id: review.id,
+            album_id: review.album_id,
+            content: review.content,
+            created_on: review.created_on
+          }
+        })
+      }
+    })
 
 const create = (name, email, password) =>
   User.create(name, email, password)

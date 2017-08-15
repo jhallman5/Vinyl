@@ -6,9 +6,10 @@ const findByEmail = (email) =>
     .where('email', email)
 
 const findById = (id) =>
-  knex.first('*')
+  knex.select('*')
     .from('users')
-    .where('id', id)
+    .where('users.id', id)
+    .leftOuterJoin('reviews', 'users.id', 'reviews.user_id')
 
 const create = (name, email, password) =>
   knex('users')

@@ -2,8 +2,7 @@ const router = require('express').Router()
 const User = require('../../models/users')
 
 router.get('/profile', (req, res) => {
-
-  res.redirect(`/users/${req.user.id}`)
+  res.redirect(`/users/${req.user.user_id}`)
 })
 
 router.get('/sign-out', (req, res) => {
