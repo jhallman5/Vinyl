@@ -17,12 +17,15 @@ router.get('/sign-up', (req, res) => {
   res.render('sign-up')
 })
 
-router.post('/sign-up', (req, res) => {
+router.post('/sign-up', (req, res, next) => {
   const {name, email, password} = req.body
   User.create(name, email, password)
     .then((user) => {
-      console.log( "=-=-=-> user", user )
-      res.redirect('/users/' + user.id)
+      user = { id: user[0]}
+      req.login(user, function(error) {
+        if (error) return next(error)
+        res.redirect('/users/' + req.user.id);
+       })
     })
     .catch(error => res.status(500).render('error', {error}))
 })
