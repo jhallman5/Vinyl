@@ -14,6 +14,7 @@ const findById = (id) =>
         reviews: user.map(review => {
           return {
             id: review.id,
+            name: review.name,
             album_id: review.album_id,
             content: review.content,
             created_on: review.created_on
