@@ -4,7 +4,10 @@ const moment = require('moment')
 const findThreeMostRecent = () =>
   Review.getAll()
     .then(reviews => {
-      reviews.forEach(review => review.created_on = moment(review.created_on).format("MMM Do YY"))
+      reviews.forEach(review => {
+        review.id = review.review_id
+        review.created_on = moment(review.created_on).format("MMM Do YY")
+      })
       return reviews.filter((review, index) => index < 3)
     })
     .catch(error => {
