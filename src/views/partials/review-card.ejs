@@ -6,7 +6,6 @@
           <em> <%= review.title %> </em>
         </a>
         <%= review.created_on %>
-          <% console.log(review.id) %>
         <br />
         <%= review.content %> <br />
         by <a href='/users/<%=review.user_id %>'/><%= review.name %></a> <br />
@@ -15,7 +14,7 @@
     <div class="media-right control">
     <% if(locals.session) {%>
       <% if(locals.session.user === review.user_id) { %>
-        <button class="button is-small is-right" type="submit">
+        <button class="button is-small is-right owned-card" type="submit">
           <i class="fa fa-trash"></i>
         </button>
       <% }} %>
