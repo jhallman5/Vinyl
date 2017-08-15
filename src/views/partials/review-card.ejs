@@ -7,7 +7,7 @@
         </a>
         <%= review.created_on %> <br />
         <%= review.content %> <br />
-        by <%= review.username %> <br />
+        by <a href='/users/<%=review.user_id %>'/><%= review.name %></a> <br />
       </div>
     </div>
   </article>

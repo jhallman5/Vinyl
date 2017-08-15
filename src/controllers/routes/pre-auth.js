@@ -13,6 +13,22 @@ router.get('/', (req, res) => {
     .catch(error => res.status(500).render('error', {error}))
 })
 
+router.get('/sign-up', (req, res) => {
+  res.render('sign-up')
+})
+
+router.post('/sign-up', (req, res, next) => {
+  const {name, email, password} = req.body
+  User.create(name, email, password)
+    .then((user) => {
+      req.login(user, function(error) {
+        if (error) return next(error)
+        res.redirect('/users/' + req.user.id);
+       })
+    })
+    .catch(error => res.status(500).render('error', {error}))
+})
+
 router.get('/sign-in', (req, res) => {
   res.render('sign-in')
 })
@@ -20,4 +36,5 @@ router.get('/sign-in', (req, res) => {
 router.post('/sign-in', (req, res) => {
   passport.authenticate('local', { successRedirect: '/users/profile', failureRedirect: '/sign-in' })(req, res)
 })
+
 module.exports = router
