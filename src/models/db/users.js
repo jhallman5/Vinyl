@@ -12,6 +12,8 @@ const findById = (id) =>
     .where('users.id', id)
     .leftOuterJoin('reviews', 'users.id', 'reviews.user_id')
     .leftOuterJoin('albums', 'reviews.album_id', 'albums.id')
+    .orderBy('created_on', 'desc')
+
 
 const create = (name, email, password) =>
   knex('users')
