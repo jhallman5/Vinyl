@@ -20,10 +20,10 @@ router.get('/sign-up', (req, res) => {
 router.post('/sign-up', (req, res, next) => {
   const {name, email, password} = req.body
   User.create(name, email, password)
-    .then((user) => {
+    .then(user => {
       req.login(user, function(error) {
         if (error) return next(error)
-        res.redirect('/users/' + req.user.id);
+        res.redirect('/users/profile');
        })
     })
     .catch(error => res.status(500).render('error', {error}))

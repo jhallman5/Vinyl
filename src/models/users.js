@@ -1,5 +1,6 @@
 const User = require('./db/users')
 const moment = require('moment')
+const bcrypt = require('bcrypt')
 
 const findByEmail = (email) =>
   User.findByEmail(email)
@@ -10,7 +11,7 @@ const findById = (id) =>
       return {
         email: user[0].email,
         name: user[0].name,
-        user_id: user[0].user_id,
+        user_id: user[0].UID,
         member_since: moment(user[0].member_since).format("MMM Do YYYY"),
         reviews: user.map(review => {
           return {
@@ -27,12 +28,18 @@ const findById = (id) =>
     })
 
 const create = (name, email, password) =>
-  User.create(name, email, password)
-    .then(user =>  {
-      return { id: user[0]}
-    })
+  bcrypt.hash(password, 12)
+    .then(hash =>
+      User.create(name, email, hash)
+        .then(user =>  {
+          return { id: user[0]}
+        })
+        .catch(error => {
+          console.log('Error in model')
+          throw error
+        }))
     .catch(error => {
-      console.log('Error in model')
+      console.log('bcrypt error')
       throw error
     })
 
