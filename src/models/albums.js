@@ -13,7 +13,7 @@ const findById = (id) =>
         artist: album[0].artist,
         reviews: album.map( review => {
           return {
-            id: review.id,
+            id: review.review_id,
             name: review.name,
             title: review.title,
             album_id: review.album_id,

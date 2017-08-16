@@ -11,7 +11,7 @@ const findById = (id) =>
         email: user[0].email,
         name: user[0].name,
         user_id: user[0].user_id,
-        member_since: user[0].member_since,
+        member_since: moment(user[0].member_since).format("MMM Do YYYY"),
         reviews: user.map(review => {
           return {
             id: review.review_id,

@@ -17,6 +17,11 @@ router.post('/:albumId/reviews/new', (req, res) => {
     .catch(error => res.status(500).render('error', {error}))
 })
 
+router.delete('/:albumId/reviews/:reviewId', (req, res) => {
+  Review.obliterate(req.params.reviewId)
+    .then( () => res.redirect(`/albums/${req.params.albumId}`))
+})
+
 router.get('/:albumID', (req, res) => {
   Album.findById(req.params.albumID)
     .then(album => res.render('album', {album, session: req.session.passport}))
