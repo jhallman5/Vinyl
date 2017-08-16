@@ -5,10 +5,10 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('reviews').insert([
-        {user_id: 1, album_id: 2, content:'I don\'t have a seat at the table', created_on: '2011-04-18'},
+        {user_id: 1, album_id: 2, content:'I don\'t have a seat at the table', created_on: '2011-04-17'},
         {user_id: 1, album_id: 3, content:'MY FAV!', created_on: '2011-07-24'},
         {user_id: 1, album_id: 1, content:'Crapola', created_on: '2011-04-18'},
-        {user_id: 3, album_id: 1, content:'Great piece of art.', created_on: '2013-06-03'},
+        {user_id: 3, album_id: 1, content:'Great piece of art.', created_on: '2013-06-17'},
         {user_id: 3, album_id: 3, content:'Oh Lorde', created_on: '2013-06-03'},
         {user_id: 2, album_id: 1, content:'Majin maliBUU.', created_on: '2011-06-05'},
         {user_id: 2, album_id: 2, content:'Cool seating.', created_on: '2012-08-05'},
