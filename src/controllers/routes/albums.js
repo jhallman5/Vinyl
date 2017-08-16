@@ -19,7 +19,7 @@ router.post('/:albumId/reviews/new', (req, res) => {
 
 router.delete('/:albumId/reviews/:reviewId', (req, res) => {
   Review.obliterate(req.params.reviewId)
-    .then( () => res.redirect(`/albums/${req.params.albumId}`))
+    .then( () => res.redirect(`/users/profile`))
     .catch(error => res.status(500).render('error', {error}))
 })
 
