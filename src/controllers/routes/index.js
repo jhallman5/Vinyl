@@ -1,9 +1,9 @@
 const router = require('express').Router()
-const preAuth = require('./pre-auth')
+const home = require('./home')
 const users = require('./users')
 const albums = require('./albums')
 
-router.use('/', preAuth)
+router.use('/', home)
 router.use('/albums', albums)
 router.use('/users', users)
 
