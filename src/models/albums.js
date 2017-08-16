@@ -13,16 +13,20 @@ const findById = (id) =>
         artist: album[0].artist,
         reviews: album.map( review => {
           return {
-            id: review.id,
+            id: review.review_id,
             name: review.name,
             title: review.title,
             album_id: review.album_id,
             user_id: review.user_id,
             content: review.content,
-            created_on: moment(review.created_on).format("MMM Do YY")
+            created_on: moment(review.created_on).format("MMM Do YYYY")
           }
         })
       }
+    })
+    .catch(error => {
+      console.log('Error in model')
+      throw error
     })
 
 module.exports = {

@@ -2,10 +2,13 @@
 <%- include partials/nav %>
 
 <form class="feild column is-one-third is-offset-4" method="POST" action="sign-up">
+  <div class="has-text-centered title">
+    Sign Up for Vinyl
+  </div>
   <div class="control">
-    <input class="input" type="text" name="name" placeholder="Name"  />
-    <input class="input" type="text" name="email" placeholder="Email" />
-    <input class="input" type="text" name="password" placeholder="Password" />
+    <input class="input" type="text" name="name" placeholder="Name" required pattern="\w+"  />
+    <input class="input" type="text" name="email" placeholder="Email" required pattern="\w+" />
+    <input class="input" type="text" name="password" placeholder="Password" required pattern="\w+" />
     <button class="button" type="submit">Sign up</button>
   </div>
 </form>

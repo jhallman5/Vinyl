@@ -2,7 +2,8 @@ const router = require('express').Router()
 const Album = require('../../models/albums')
 const Review = require('../../models/reviews')
 const User = require('../../models/users')
-const {passport} = require('../../auth/passport')
+const passport = require('../../auth/passport')
+const { checkIfUserExists } = require('../middleware')
 
 router.get('/', (req, res) => {
   Album.getAll()
@@ -17,13 +18,13 @@ router.get('/sign-up', (req, res) => {
   res.render('sign-up')
 })
 
-router.post('/sign-up', (req, res, next) => {
+router.post('/sign-up', checkIfUserExists, (req, res, next) => {
   const {name, email, password} = req.body
   User.create(name, email, password)
-    .then((user) => {
+    .then(user => {
       req.login(user, function(error) {
         if (error) return next(error)
-        res.redirect('/users/' + req.user.id);
+        res.redirect('/users/profile');
        })
     })
     .catch(error => res.status(500).render('error', {error}))

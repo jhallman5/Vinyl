@@ -15,12 +15,13 @@
   </div>
 </div>
 
-
   <div class="column is-6 is-offset-4">
     <h1>Reviews</h1>
-    <% user.reviews.forEach(function(review) { %>
-      <%- include partials/review-card %>
-    <% }) %>
+    <% if(user.reviews[0].id) { %>
+      <% user.reviews.forEach(function(review) { %>
+        <%- include partials/review-card %>
+      <% }) %>
+    <% } %>
   </div>
 
 

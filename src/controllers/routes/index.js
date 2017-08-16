@@ -1,13 +1,11 @@
 const router = require('express').Router()
-const preAuth = require('./pre-auth')
+const home = require('./home')
 const users = require('./users')
-const reviews = require('./reviews')
 const albums = require('./albums')
 
-router.use('/', preAuth)
+router.use('/', home)
 router.use('/albums', albums)
 router.use('/users', users)
-router.use('/reviews', reviews)
 
 router.use((req, res) => {
   res.status(404).render('not_found')

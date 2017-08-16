@@ -11,6 +11,7 @@ const findById = (id) =>
     .where('albums.id', id)
     .leftOuterJoin('reviews', 'albums.id', 'reviews.album_id')
     .leftOuterJoin('users', 'reviews.user_id', 'users.id')
+    .orderBy('created_on', 'desc')
 
 module.exports = {
   getAll,

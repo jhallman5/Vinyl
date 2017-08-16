@@ -6,7 +6,7 @@ const findThreeMostRecent = () =>
     .then(reviews => {
       reviews.forEach(review => {
         review.id = review.review_id
-        review.created_on = moment(review.created_on).format("MMM Do YY")
+        review.created_on = moment(review.created_on).format("MMM Do YYYY")
       })
       return reviews.filter((review, index) => index < 3)
     })
@@ -18,7 +18,11 @@ const findThreeMostRecent = () =>
 const obliterate = (id) =>
   Review.obliterate(id)
 
+const create = (userId, albumId, content) =>
+  Review.create(userId, albumId, content)
+
 module.exports = {
   findThreeMostRecent,
   obliterate,
+  create,
 }

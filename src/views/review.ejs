@@ -5,7 +5,7 @@
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
-        <h1><%= album.title %></h1>
+        A new review for <%= album.title %>
       </h1>
       <h2 class="subtitle">
         <em>by <%= album.artist %></em>
@@ -14,13 +14,17 @@
   </div>
 </section>
 
-<form class="field column is-4 is-offset-4">
+<form class="field column is-4 is-offset-4" method="POST" action="/albums/<%= album.id %>/reviews/new">
   <div class="control">
-    <textarea class="textarea" placeholder="Let us know your thoughts!"></textarea>
+    <textarea class="textarea" placeholder="Let us know your thoughts!" name="content"></textarea>
   </div>
+  <% if(locals.session) { %>
   <div class="control column is-offset-9">
-  <button class="button is-primary">Submit</button>
-</div>
+    <button class="button is-primary">Submit</button>
+  </div>
+  <% } %>
 </form>
+
+<script type="text/javascript" src="/new-review.js"></script>
 
 <%- include partials/footer %>
