@@ -31,6 +31,10 @@ const create = (name, email, password) =>
     .then(user =>  {
       return { id: user[0]}
     })
+    .catch(error => {
+      console.log('Error in model')
+      throw error
+    })
 
 module.exports = {
   findByEmail,

@@ -17,7 +17,7 @@
   <div class="reviews-list column is-one-third is-offset-4">
     <div class="columns">
     <div class="column">Reviews</div>
-    <a class="column is-3" href="/albums/<%= album.album_id %>/reviews/new">Add review</a>
+    <a class="column is-3" href="/albums/<%= album.id %>/reviews/new">Add review</a>
   </div>
     <% album.reviews.forEach(function(review) { %>
       <%- include partials/review-card %>

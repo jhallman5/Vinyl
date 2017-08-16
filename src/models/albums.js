@@ -24,6 +24,10 @@ const findById = (id) =>
         })
       }
     })
+    .catch(error => {
+      console.log('Error in model')
+      throw error
+    })
 
 module.exports = {
   getAll,
