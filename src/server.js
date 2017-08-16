@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const session = require('express-session')
 const router = require('./controllers/routes')
 const methodOverride = require('method-override')
-const {passport} = require('./auth/passport')
+const passport = require('./auth/passport')
 
 const port = process.env.PORT || 3000
 

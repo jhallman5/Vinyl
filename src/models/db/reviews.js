@@ -1,8 +1,7 @@
 const knex = require('knex')(require('./knexfile'))
 
 const getAll = () =>
-  knex.select('name',
-  'user_id', 'reviews.id AS review_id', 'title', 'album_id', 'content', 'created_on')
+  knex.select('name', 'user_id', 'reviews.id AS review_id', 'title', 'album_id', 'content', 'created_on')
     .from('reviews')
     .leftOuterJoin('users', 'reviews.user_id', 'users.id')
     .leftOuterJoin('albums', 'reviews.album_id', 'albums.id')
@@ -14,8 +13,8 @@ const obliterate = (id) =>
     .del()
 
 const create = (userId, albumId, content) =>
-    knex('reviews')
-      .insert({user_id: userId, album_id: albumId, content})
+  knex('reviews')
+    .insert({user_id: userId, album_id: albumId, content})
 
 module.exports = {
   getAll,

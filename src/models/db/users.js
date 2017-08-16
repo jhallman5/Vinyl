@@ -14,12 +14,10 @@ const findById = (id) =>
     .leftOuterJoin('albums', 'reviews.album_id', 'albums.id')
     .orderBy('created_on', 'desc')
 
-
 const create = (name, email, password) =>
   knex('users')
     .insert({email, name, password})
     .returning('id')
-
 
 module.exports = {
   findByEmail,
