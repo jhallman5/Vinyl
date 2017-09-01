@@ -1,4 +1,4 @@
-<form class="box" method="POST" action="/albums/<%= review.album_id %>/reviews/<%= review.id %>?_method=DELETE">
+<div class="box">
   <article class="media">
     <div class="media-content">
       <div class="content">
@@ -14,10 +14,10 @@
     <div class="media-right control">
     <% if(locals.session) {%>
       <% if(locals.session.user === review.user_id) { %>
-        <button class="button is-small is-right owned-card" type="submit">
+        <button class="button is-small is-right owned-card" data-albumid="<%= review.album_id %>" data-reviewid="<%= review.id %>" type="submit">
           <i class="fa fa-trash"></i>
         </button>
       <% }} %>
     </div>
   </article>
-</form>
+</div>
