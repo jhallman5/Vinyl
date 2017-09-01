@@ -2,7 +2,6 @@
 
 A community for record enthusiasts to review their favorite albums.
 
-Part of the application has already been built for you. Your job is to take it to completion.
 
 ## Getting Started
 
