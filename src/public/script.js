@@ -10,9 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const deleteAlbum = (albumId, reviewId, target) => {
   fetch(`http://localhost:3000/albums/${albumId}/reviews/${reviewId}`, {method: 'DELETE'})
-    .then( response => {
-       return response.text()
-    })
+    .then( response => response.text())
     .then(() => {
       const card = target.parentNode.parentNode.parentNode
       card.parentNode.removeChild(card)
